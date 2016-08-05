@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 host = 'http://bizhi.sogou.com'
 
 # 黑名单，不爽的壁纸id放进这个数组
-blacklist=[
+blacklist = [
     -1,
 ]
 
@@ -81,17 +81,18 @@ def set_wallpaper(picpath):
     os.system('gsettings set org.gnome.desktop.background picture-uri file://"%s"' % (picpath))
     # os.system('DISPLAY=:0 gsettings set org.gnome.desktop.background picture-uri "%s"' % (picpath))
 
+
 def recordTmpIMG(picpath):
-    tmpfile=open("/tmp/wallpapper_tmp.txt",'wb')
+    tmpfile = open("/tmp/wallpapper_tmp.txt", 'wb')
     tmpfile.write(str.encode(picpath))
     tmpfile.close()
 
 
 def removeTmpIMG():
-    tmpfile=open("/tmp/wallpapper_tmp.txt")
+    tmpfile = open("/tmp/wallpapper_tmp.txt")
     lastWallPapper = tmpfile.readline()
     tmpfile.close()
-    os.system('rm -rf '+ lastWallPapper)
+    os.system('rm -rf ' + lastWallPapper)
 
 
 if __name__ == '__main__':
@@ -100,7 +101,7 @@ if __name__ == '__main__':
     max_wp_id = getMinWpId(min_wp_id=100000000, index=cate)
     random_wp_id = random.randint(1, max_wp_id)
     wp_id = getMinWpId(random_wp_id, cate)
-    while ((wp_id == -1 )or (wp_id in blacklist)):
+    while ((wp_id == -1) or (wp_id in blacklist)):
         random_wp_id = random.randint(1, max_wp_id)
         wp_id = getMinWpId(random_wp_id, cate)
 
