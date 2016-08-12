@@ -13,7 +13,8 @@ host = 'http://bizhi.sogou.com'
 blacklist = [
     -1,
     1270712,
-    1215152
+    1215152,
+    684573
 ]
 
 
