@@ -12,6 +12,8 @@ host = 'http://bizhi.sogou.com'
 # 黑名单，不爽的壁纸id放进这个数组
 blacklist = [
     -1,
+    1270712,
+    1215152
 ]
 
 
