@@ -14,10 +14,12 @@
         sleep 5s
         ret_code=`curl -I -s --connect-timeout $timeout $target -w %{http_code} | tail -n1`
     done
+    cd $HOME/pycharmprojects/sg_wp_spider
+    git pull
     touch /tmp/wallpapper_tmp.txt
     while(true)
         do
-            python3.5 /home/wuhao/pycharmprojects/sg_wp_spider/autochangeWallPapper_core.py
+            python3.5 $HOME/pycharmprojects/sg_wp_spider/autochangeWallPapper_core.py
             sleep 1m
         done
 
